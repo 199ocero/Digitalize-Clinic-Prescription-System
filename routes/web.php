@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\User;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\Clinician;
+use App\Http\Controllers\Staff;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +22,62 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    $clinician = count(User::whereRoleIs('clinician')->get()->toArray());
+    $staff = count(User::whereRoleIs('staff')->get()->toArray());
+    $patient = count(User::whereRoleIs('patient')->get()->toArray());
+    return view('pages.master.index',compact('clinician','staff','patient'));
 })->name('dashboard');
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::prefix('admin')->group(function(){
+
+        //View-Clinician
+        Route::get('/clinician/view',[Admin::class,'viewClinician'])->name('view.admin.clinician');
+        Route::get('/clinician/add',[Admin::class,'viewAddClinician'])->name('view.admin.clinician.add');
+
+        //CRUD Clinician
+        Route::post('/clinician/add',[Admin::class,'addClinician'])->name('clinician.add');
+        Route::get('/clinician/edit/{id}',[Admin::class,'editClinician'])->name('clinician.edit');
+        Route::post('/clinician/update/{id}',[Admin::class,'updateClinician'])->name('clinician.update');
+        Route::get('/clinician/delete/{id}',[Admin::class,'deleteClinician'])->name('clinician.delete');
+
+        //View-Staff
+        Route::get('/staff/view',[Admin::class,'viewStaff'])->name('view.admin.staff');
+        Route::get('/staff/add',[Admin::class,'viewAddStaff'])->name('view.admin.staff.add');
+
+        //CRUD Staff
+        Route::post('/staff/add',[Admin::class,'addStaff'])->name('staff.add');
+        Route::get('/staff/edit/{id}',[Admin::class,'editStaff'])->name('staff.edit');
+        Route::post('/staff/update/{id}',[Admin::class,'updateStaff'])->name('staff.update');
+        Route::get('/staff/delete/{id}',[Admin::class,'deleteStaff'])->name('staff.delete');
+    });
+});
+
+Route::group(['middleware' => ['auth', 'role:staff']], function() { 
+    Route::prefix('staff')->group(function(){
+
+        //View-Staff
+        Route::get('/patient/view',[Staff::class,'viewPatient'])->name('view.staff.patient');
+        Route::get('/patient/add',[Staff::class,'viewAddPatient'])->name('view.staff.patient.add');
+
+        //CRUD Staff
+        Route::post('/patient/add',[Staff::class,'addPatient'])->name('patient.add');
+        Route::get('/patient/edit/{id}',[Staff::class,'editPatient'])->name('patient.edit');
+        Route::post('/patient/update/{id}',[Staff::class,'updatePatient'])->name('patient.update');
+        Route::get('/patient/delete/{id}',[Staff::class,'deletePatient'])->name('patient.delete');
+    });
+});
+
+Route::group(['middleware' => ['auth', 'role:clinician']], function() { 
+    Route::prefix('clinician')->group(function(){
+
+        //View-Staff
+        Route::get('/profile/view',[Clinician::class,'viewProfile'])->name('view.profile.clinician');
+        // Route::get('/patient/add',[Clinician::class,'viewAddPatient'])->name('view.staff.patient.add');
+
+        //CRUD Profile
+        Route::get('/profile/edit/{id}',[Clinician::class,'editProfile'])->name('profile.edit');
+        Route::post('/profile/update/{id}',[Clinician::class,'updateProfile'])->name('profile.update');
+        Route::get('/profile/delete/{id}',[Clinician::class,'deleteProfile'])->name('profile.delete');
+    });
+});

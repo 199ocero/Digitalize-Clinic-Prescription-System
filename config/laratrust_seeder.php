@@ -24,6 +24,10 @@ return [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
+        'patient' => [
+            'users' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
 
     ],
 

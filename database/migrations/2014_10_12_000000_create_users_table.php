@@ -15,14 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->unique()->nullable();
             $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('extension')->nullable();
             $table->string('suffix')->nullable();
             $table->string('sex')->nullable();
             $table->string('civil_status')->nullable();
-            $table->string('nationality')->nullable();
             $table->string('address')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('height')->nullable();
@@ -30,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('blood_type')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('clinic_name')->nullable();
+            $table->string('image')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
