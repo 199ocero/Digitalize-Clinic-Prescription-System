@@ -9,7 +9,7 @@
         <div class="user-profile">
 			<div class="ulogo">
         <div class="d-flex align-items-center justify-content-center">					 	
-          <img src="{{asset('backend/images/logo-dark.png')}}">
+          <img src="{{asset('upload/dcps_logo.png')}}">
        </div>
 			</div>
         </div>
@@ -96,7 +96,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class=""><a href=""><i class="ti-more"></i>View Patient</a></li>
+              <li class="{{(($prefix=='/clinician' && $route=='view.clinician.patient'))?'active':''}}"><a href="{{route('view.clinician.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
           </li> 
         @endrole

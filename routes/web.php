@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth', 'role:staff']], function() {
         Route::get('/patient/view',[Staff::class,'viewPatient'])->name('view.staff.patient');
         Route::get('/patient/add',[Staff::class,'viewAddPatient'])->name('view.staff.patient.add');
 
-        //CRUD Staff
+        //CRUD Patient
         Route::post('/patient/add',[Staff::class,'addPatient'])->name('patient.add');
         Route::get('/patient/edit/{id}',[Staff::class,'editPatient'])->name('patient.edit');
         Route::post('/patient/update/{id}',[Staff::class,'updatePatient'])->name('patient.update');
@@ -81,5 +81,11 @@ Route::group(['middleware' => ['auth', 'role:clinician']], function() {
 
         //CRUD Change Password
         Route::post('/password/update',[Clinician::class,'updatePassword'])->name('password.update');
+
+        //CRUD Patient
+        Route::get('/patient/view',[Clinician::class,'viewPatient'])->name('view.clinician.patient');
+
+        //CRUD Patient
+        Route::post('/patient/record',[Clinician::class,'addPatient'])->name('clinician.patient.records');
     });
 });

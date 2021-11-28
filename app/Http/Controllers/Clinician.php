@@ -90,4 +90,10 @@ class Clinician extends Controller
         }
         return redirect()->route('view.password.clinician')->with('success','Password Change!');
     }
+
+    //Patient
+    public function viewPatient(){
+        $patient = User::whereRoleIs('patient')->get();
+        return view('pages.clinician.patient.view-patient',compact('patient'));
+    }
 }
