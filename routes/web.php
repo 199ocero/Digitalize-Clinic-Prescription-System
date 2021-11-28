@@ -73,11 +73,13 @@ Route::group(['middleware' => ['auth', 'role:clinician']], function() {
 
         //View-Staff
         Route::get('/profile/view',[Clinician::class,'viewProfile'])->name('view.profile.clinician');
-        // Route::get('/patient/add',[Clinician::class,'viewAddPatient'])->name('view.staff.patient.add');
+        Route::get('/password/view',[Clinician::class,'viewPassword'])->name('view.password.clinician');
 
         //CRUD Profile
-        Route::get('/profile/edit/{id}',[Clinician::class,'editProfile'])->name('profile.edit');
-        Route::post('/profile/update/{id}',[Clinician::class,'updateProfile'])->name('profile.update');
-        Route::get('/profile/delete/{id}',[Clinician::class,'deleteProfile'])->name('profile.delete');
+        Route::get('/profile/edit',[Clinician::class,'editProfile'])->name('profile.edit');
+        Route::post('/profile/update',[Clinician::class,'updateProfile'])->name('profile.update');
+
+        //CRUD Change Password
+        Route::post('/password/update',[Clinician::class,'updatePassword'])->name('password.update');
     });
 });

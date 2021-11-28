@@ -35,10 +35,10 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix=='admin' && $route=='view.admin.clinician')
-              ||($prefix=='admin' && $route=='view.admin.clinician.add'))?'active':''}}"><a href="{{route('view.admin.clinician')}}"><i class="ti-more"></i>View Clinician</a></li>
-              <li class="{{(($prefix=='admin' && $route=='view.admin.staff')
-              ||($prefix=='admin' && $route=='view.admin.staff.add'))?'active':''}}"><a href="{{route('view.admin.staff')}}"><i class="ti-more"></i>View Staff</a></li>
+              <li class="{{(($prefix=='/admin' && $route=='view.admin.clinician')
+              ||($prefix=='/admin' && $route=='view.admin.clinician.add'))?'active':''}}"><a href="{{route('view.admin.clinician')}}"><i class="ti-more"></i>View Clinician</a></li>
+              <li class="{{(($prefix=='/admin' && $route=='view.admin.staff')
+              ||($prefix=='/admin' && $route=='view.admin.staff.add'))?'active':''}}"><a href="{{route('view.admin.staff')}}"><i class="ti-more"></i>View Staff</a></li>
           </ul>
           </li> 
         @endrole
@@ -59,8 +59,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix=='staff' && $route=='view.staff.patient')
-              ||($prefix=='staff' && $route=='view.staff.patient.add'))?'active':''}}"><a href="{{route('view.staff.patient')}}"><i class="ti-more"></i>View Patient</a></li>
+              <li class="{{(($prefix=='/staff' && $route=='view.staff.patient')
+              ||($prefix=='/staff' && $route=='view.staff.patient.add'))?'active':''}}"><a href="{{route('view.staff.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
           </li> 
         @endrole
@@ -81,8 +81,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix=='clinician' && $route=='view.profile.clinician'))?'active':''}}"><a href="{{route('view.profile.clinician')}}"><i class="ti-more"></i>View Profile</a></li>
-              <li class=""><a href=""><i class="ti-more"></i>Change Password</a></li>
+              <li class="{{(($prefix=='/clinician' && $route=='view.profile.clinician')
+              ||($prefix=='/clinician' && $route=='profile.edit'))?'active':''}}"><a href="{{route('view.profile.clinician')}}"><i class="ti-more"></i>View Profile</a></li>
+              <li class="{{(($prefix=='/clinician' && $route=='view.password.clinician'))?'active':''}}"><a href="{{route('view.password.clinician')}}"><i class="ti-more"></i>Change Password</a></li>
           </ul>
           </li>
           <li class="header nav-small-cap">Patient Management</li>
