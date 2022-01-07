@@ -142,7 +142,15 @@
                                   @enderror
                                 </div>
                             </div>
-                            
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" name="address" id="address" placeholder="Enter Address" value="{{$patient->address}}">
+                                @error('address')
+                                  <span class="text-danger">{{$message}}</span>
+                                @enderror
+                              </div>
+                            </div>
                         </div>
                       </div>
                       <!-- /.box-body -->

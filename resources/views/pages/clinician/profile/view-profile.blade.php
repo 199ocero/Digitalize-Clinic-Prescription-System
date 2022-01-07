@@ -4,83 +4,6 @@
 <div class="content-wrapper">
       <!-- Main content -->
       <section class="content">
-        <!-- /.row -->
-        {{-- <div class="row">
-            <div class="col-md-12">
-                <div class="box box-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-black">
-                      <a href="{{route('profile.edit')}}" class="btn btn-primary float-right"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a>
-                    </div>
-                    <div class="widget-user-image">
-                      <img class="rounded-circle" src="{{!empty($clinician->image)?url('upload/user_images/'.$clinician->image):url('upload/no_image.jpg')}}" alt="User Avatar">
-                    </div>
-                    <div class="box-footer">
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <div class="description-block">
-                            <h5 class="description-header">First Name</h5>
-                            <span class="description-text">{{$clinician->first_name}}</span>
-                          </div>
-                          <!-- /.description-block -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-3 br-1 bl-1">
-                          <div class="description-block">
-                            <h5 class="description-header">Middle Name</h5>
-                            <span class="description-text">{{$clinician->middle_name}}</span>
-                          </div>
-                          <!-- /.description-block -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-3 br-1 bl-1">
-                          <div class="description-block">
-                            <h5 class="description-header">Last Name</h5>
-                            <span class="description-text">{{$clinician->last_name}}</span>
-                          </div>
-                          <!-- /.description-block -->
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="description-block">
-                              <h5 class="description-header">Suffix</h5>
-                              <span class="description-text">{{$clinician->suffix}}</span>
-                            </div>
-                            <!-- /.description-block -->
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-                    </div>
-                    
-                </div>
-                <div class="box">
-                  <div class="box-body box-profile">            
-                    <div class="row">
-                      <div class="col-12">
-                          <div>
-                              <p><strong class="text-warning">Sex :</strong><span class="text-gray pl-10">{{$clinician->sex}}</span></p>
-                              <p><strong class="text-warning">Civil Status :</strong><span class="text-gray pl-10">{{$clinician->civil_status}}</span></p>
-                              <p><strong class="text-warning">Birth Date :</strong><span class="text-gray pl-10">{{$clinician->birthdate}}</span></p>
-                              <p><strong class="text-warning">Weight :</strong><span class="text-gray pl-10">{{$clinician->weight}} kg</span></p>
-                              <p><strong class="text-warning">Height :</strong><span class="text-gray pl-10">{{$clinician->height}} m</span></p>
-                              <p><strong class="text-warning">Blood Type :</strong><span class="text-gray pl-10">{{$clinician->blood_type}}</span></p>
-                              <p><strong class="text-warning">Contact Number :</strong><span class="text-gray pl-10">{{$clinician->contact_number}}</span></p>
-                              <p><strong class="text-warning">Email :</strong><span class="text-gray pl-10">{{$clinician->email}}</span></p>
-                              <p><strong class="text-warning">Clinic :</strong><span class="text-gray pl-10">{{$clinician->clinic_name}}</span></p>
-                              <p><strong class="text-warning">Address :</strong><span class="text-gray pl-10">{{$clinician->address}}</span></p>
-                          </div>
-                      </div> 
-                    </div>
-                  </div>
-                  <!-- /.box-body -->
-              </div>
-            </div>
-            
-            
-            
-            
-        </div> --}}
-        
         <div class="row">
     
           <!--Box options!-->
@@ -98,7 +21,6 @@
                     <div class="box-footer">
                       <div class="d-flex flex-column align-items-center text-center">
                         <div class="mt-3">
-                          <h5>{{$clinician->first_name}} {{$clinician->last_name}}</h5>
                           <p class="text-secondary mb-2">Clinician</p>
                         </div>
                       </div>
@@ -118,7 +40,43 @@
                         <div>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Sex :</strong></p>
+                              <p><strong class="text-secondary">First Name :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->first_name}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><strong class="text-secondary">Middle Name :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->middle_name}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><strong class="text-secondary">Last Name :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->last_name}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><strong class="text-secondary">Suffix :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->suffix}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><strong class="text-secondary">Sex :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->sex}}
@@ -127,7 +85,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Civil Status :</strong></p>
+                              <p><strong class="text-secondary">Civil Status :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->civil_status}}
@@ -136,16 +94,16 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Birth Date :</strong></p>
+                              <p><strong class="text-secondary">Birth Date :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
-                              {{$clinician->birthdate}}
+                              {{$clinician->birthdate->format('F j, Y')}}
                             </div>
                           </div>
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Weight :</strong></p>
+                              <p><strong class="text-secondary">Weight :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->weight}}
@@ -154,7 +112,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Height :</strong></p>
+                              <p><strong class="text-secondary">Height :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->height}}
@@ -163,7 +121,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Blood Type :</strong></p>
+                              <p><strong class="text-secondary">Blood Type :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->blood_type}}
@@ -172,7 +130,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Contact Number :</strong></p>
+                              <p><strong class="text-secondary">Contact Number :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->contact_number}}
@@ -181,7 +139,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Email :</strong></p>
+                              <p><strong class="text-secondary">Email :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->email}}
@@ -190,7 +148,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Clininc :</strong></p>
+                              <p><strong class="text-secondary">Clinic :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->clinic_name}}
@@ -199,7 +157,7 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
-                              <p><strong class="text-warning">Address :</strong></p>
+                              <p><strong class="text-secondary">Address :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
                               {{$clinician->address}}

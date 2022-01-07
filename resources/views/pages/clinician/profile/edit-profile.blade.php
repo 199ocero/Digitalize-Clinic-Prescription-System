@@ -111,7 +111,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Weight (Kilograms)</label>
-                                  <input type="text" class="form-control" name="weight" id="weight" placeholder="Enter Weight" value="{{$clinician->weight}}">
+                                  <input type="number" class="form-control" name="weight" id="weight" placeholder="Enter Weight" value="{{$clinician->weight}}">
                                   @error('weight')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -120,7 +120,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Height (Meters)</label>
-                                  <input type="text" class="form-control" name="height" id="height" placeholder="Enter Height" value="{{$clinician->height}}">
+                                  <input type="number" class="form-control" name="height" id="height" placeholder="Enter Height" value="{{$clinician->height}}">
                                   @error('height')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -129,7 +129,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Email</label>
-                                  <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$clinician->email}}">
+                                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$clinician->email}}">
                                   @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -138,7 +138,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Contact Number</label>
-                                  <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number" value="{{$clinician->contact_number}}">
+                                  <input type="tel" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number" value="{{$clinician->contact_number}}" maxlength="11">
                                   @error('contact')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -146,7 +146,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                  <label>Address</label>
+                                  <label>Clinic Name</label>
                                   <input type="text" class="form-control" name="clinic_name" id="clinic_name" placeholder="Enter Clinic Name" value="{{$clinician->clinic_name}}">
                                   @error('clinic_name')
                                     <span class="text-danger">{{$message}}</span>

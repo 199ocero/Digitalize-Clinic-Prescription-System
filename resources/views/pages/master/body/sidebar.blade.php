@@ -60,7 +60,8 @@
             </a>
             <ul class="treeview-menu">
               <li class="{{(($prefix=='/staff' && $route=='view.staff.patient')
-              ||($prefix=='/staff' && $route=='view.staff.patient.add'))?'active':''}}"><a href="{{route('view.staff.patient')}}"><i class="ti-more"></i>View Patient</a></li>
+              ||($prefix=='/staff' && $route=='view.staff.patient.add')
+              ||($prefix=='/staff' && $route=='patient.edit'))?'active':''}}"><a href="{{route('view.staff.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
           </li> 
         @endrole
@@ -96,7 +97,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{(($prefix=='/clinician' && $route=='view.clinician.patient'))?'active':''}}"><a href="{{route('view.clinician.patient')}}"><i class="ti-more"></i>View Patient</a></li>
+              <li class="{{(($prefix=='/clinician' && $route=='view.clinician.patient')
+              ||($prefix=='/clinician' && $route=='clinician.patient.records')
+              ||($prefix=='/clinician' && $route=='patient.record.add'))?'active':''}}"><a href="{{route('view.clinician.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
           </li> 
         @endrole

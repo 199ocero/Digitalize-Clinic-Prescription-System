@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+	<script src="https://cdn.tiny.cloud/1/ez7xvl9blyglw0lo8im3iwsh10zsljdoh19hvfu940ja9gxw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  
   </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -44,8 +46,10 @@
   	
 	
 	<!-- Vendor JS -->
+  
 	<script src="{{asset('backend/js/vendors.min.js')}}"></script>
   <script src="{{asset('../assets/icons/feather-icons/feather.min.js')}}"></script>	
+  <script src="{{asset('../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js')}}"></script>
 	<script src="{{asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
 	<script src="{{asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
 	<script src="{{asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
@@ -53,12 +57,10 @@
 	<script src="{{asset('backend/js/pages/data-table.js')}}"></script>
 	<script src="{{asset('backend/js/pages/jquery.toaster.js')}}"></script>
   <script src="{{asset('../assets/vendor_components/dropzone/dropzone.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 	<!-- Sunny Admin App -->
 	<script src="{{asset('backend/js/template.js')}}"></script>
 	<script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	
 	<script>
     @if(Session::has('success'))
 

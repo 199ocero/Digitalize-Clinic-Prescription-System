@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
+use Patient;
 
 class User extends Authenticatable
 {
@@ -60,4 +61,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function patient(){
+        return $this->belongsTo(Patient::class,'patient_id','id');
+    }
 }

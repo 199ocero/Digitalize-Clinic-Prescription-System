@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Clinician;
 use App\Http\Controllers\Staff;
+use App\Models\Patient;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $clinician = count(User::whereRoleIs('clinician')->get()->toArray());
     $staff = count(User::whereRoleIs('staff')->get()->toArray());
-    $patient = count(User::whereRoleIs('patient')->get()->toArray());
+    $patient = count(Patient::all()->toArray());
     return view('pages.master.index',compact('clinician','staff','patient'));
 })->name('dashboard');
 
@@ -82,10 +83,15 @@ Route::group(['middleware' => ['auth', 'role:clinician']], function() {
         //CRUD Change Password
         Route::post('/password/update',[Clinician::class,'updatePassword'])->name('password.update');
 
-        //CRUD Patient
+        //Patient View
         Route::get('/patient/view',[Clinician::class,'viewPatient'])->name('view.clinician.patient');
 
-        //CRUD Patient
-        Route::post('/patient/record',[Clinician::class,'addPatient'])->name('clinician.patient.records');
+        //Patient Record
+        Route::get('/patient/record/details/{id}',[Clinician::class,'viewRecord'])->name('clinician.patient.records');
+
+        //CRUD Patient Record
+        Route::get('/patient/record/add/view/{id}',[Clinician::class,'addViewRecord'])->name('patient.record.add');
+        Route::post('/patient/record/add/{id}',[Clinician::class,'addRecord'])->name('patient.record.add');
+
     });
 });

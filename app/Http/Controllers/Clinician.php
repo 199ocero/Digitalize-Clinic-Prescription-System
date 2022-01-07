@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Patient;
+use App\Models\Clinicians;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Validation\Rule;
@@ -12,15 +15,15 @@ use Illuminate\Support\Facades\Hash;
 class Clinician extends Controller
 {
     public function viewProfile(){
-        $clinician = User::find(Auth::id());
+        $clinician = Clinicians::where('clinician_id',Auth::id())->first();
         return view('pages.clinician.profile.view-profile',compact('clinician'));
     }
     public function editProfile(){
-        $clinician = User::find(Auth::id());
+        $clinician = Clinicians::where('clinician_id',Auth::id())->first();
         return view('pages.clinician.profile.edit-profile',compact('clinician'));
     }
     public function updateProfile(Request $request){
-        $clinician = User::find(Auth::id());
+        $clinician = Clinicians::where('clinician_id',Auth::id())->first();
         
         $validateData = $request->validate([
             'first_name' => ['required', 'max:255'],
@@ -35,11 +38,10 @@ class Clinician extends Controller
             'contact' => ['required','max:255'],
             'birthdate' => ['required','max:255'], 
             'address' => ['required','max:255'], 
-            'clinic_name' => ['required','max:255'], 
-            'image' => ['required'], 
+            'clinic_name' => ['required','max:255'],  
             'email' => [
                 'required',
-                Rule::unique('users')->ignore($clinician->id),
+                Rule::unique('clinicians')->ignore($clinician->id),
             ],
         ]);
 
@@ -57,6 +59,8 @@ class Clinician extends Controller
         $clinician->birthdate = $request->birthdate;
         $clinician->address = $request->address;
         $clinician->clinic_name = $request->clinic_name;
+        // $clinician->ptr_number = $request->clinic_name;
+        // $clinician->license_number = $request->clinic_name;
 
         if($request->file('image')){
             $file = $request->file('image');
@@ -93,7 +97,29 @@ class Clinician extends Controller
 
     //Patient
     public function viewPatient(){
-        $patient = User::whereRoleIs('patient')->get();
+        $patient = Patient::all();
         return view('pages.clinician.patient.view-patient',compact('patient'));
     }
+
+    public function viewRecord($id){
+        $patient = Appointment::where('patient_id',$id)->get();
+        $first_name = Patient::find($id);
+        return view('pages.clinician.patient.view-record',compact('patient','id','first_name'));
+    }
+    public function addViewRecord($id){
+        return view('pages.clinician.patient.create-record',compact('id'));
+    }
+    public function addRecord(Request $request, $id){
+        $record = $request->all();
+        $records = $request->input('test');
+        $symptoms = $request->symptoms;
+
+        
+        $appointment = new Appointment();
+        $appointment->patient_id = $id;
+        $appointment->symptoms = $request->symptoms;
+        $appointment->save();
+        dd($records);
+    }
+
 }

@@ -9,21 +9,18 @@
             
            <div class="box">
               <div class="box-header with-border">
-                  <h3 class="box-title">Patient Accounts</h3>
+                  <h3 class="box-title">{{$first_name->first_name}}'s Health Records</h3>
+                  <a href="{{url('clinician/patient/record/add/view/'.$id)}}" class="btn btn-primary float-right"><i class="glyphicon glyphicon-plus"></i> Add Record</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
-                          <thead>
+                        <thead>
                             <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Middle Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Suffix</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Created</th>
+                            <th scope="col">Appointment Date</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -32,21 +29,18 @@
                             @foreach ($patient as $patient)
                                 <tr>
                                     <th scope="row">{{$i++}}</th>
-                                    <td>{{$patient->first_name}}</td>
-                                    <td>{{$patient->middle_name}}</td>
-                                    <td>{{$patient->last_name}}</td>
-                                    <td>{{$patient->suffix}}</td>
-                                    <td>{{$patient->email}}</td>
-                                    <td>{{$patient->created_at->format('m-d-Y')}}</td>
+                                    <td>{{$patient->created_at->format('F j, Y')}}</td>
+                                    <td>{{$patient->created_at->format('g:i A')}}</td>
                                     <td style="white-space: nowrap;width:1%">
-                                        <a href="{{url('clinician/patient/record/details/'.$patient->id)}}" data-toggle="tooltip" title="View Record" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-folder-open"></i></a>
+                                        <a href="" data-toggle="tooltip" title="View Details" class="btn btn-circle btn-info text-white"><i class ="glyphicon glyphicon-info-sign"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
                             
                         </tbody>
                   </table>
-                  </div>              
+
+                  </div>            
               </div>
               <!-- /.box-body -->
             </div>

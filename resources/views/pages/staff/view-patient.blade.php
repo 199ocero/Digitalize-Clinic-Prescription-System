@@ -19,9 +19,11 @@
                         <thead>
                             <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Full Name</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Middle Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Suffix</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Type</th>
                             <th scope="col">Created</th>
                             <th scope="col">Action</th>
                             </tr>
@@ -31,9 +33,11 @@
                             @foreach ($patient as $patient)
                                 <tr>
                                     <th scope="row">{{$i++}}</th>
-                                    <td>{{$patient->first_name}} {{$patient->last_name}}</td>
+                                    <td>{{$patient->first_name}}</td>
+                                    <td>{{$patient->middle_name}}</td>
+                                    <td>{{$patient->last_name}}</td>
+                                    <td>{{$patient->suffix}}</td>
                                     <td>{{$patient->email}}</td>
-                                    <td>Patient</td>
                                     <td>{{$patient->created_at->format('m-d-Y')}}</td>
                                     <td style="white-space: nowrap;width:1%">
                                         <a href="{{url('staff/patient/edit/'.$patient->id)}}" data-toggle="tooltip" title="Edit Patient" class="btn btn-circle btn-primary text-white"><i class ="glyphicon glyphicon-edit"></i></a>
