@@ -1,3 +1,3 @@
 <footer class="main-footer">
-    &copy; 2021 UPortal. All Rights Reserved.
+    &copy; 2021 DCPS. All Rights Reserved.
 </footer>

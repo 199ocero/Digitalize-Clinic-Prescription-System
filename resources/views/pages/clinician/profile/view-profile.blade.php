@@ -18,10 +18,20 @@
                     <div class="widget-user-image">
                       <img class="rounded-circle" src="{{!empty($clinician->image)?url('upload/user_images/'.$clinician->image):url('upload/no_image.jpg')}}" alt="User Avatar">
                     </div>
+                    
                     <div class="box-footer">
                       <div class="d-flex flex-column align-items-center text-center">
                         <div class="mt-3">
-                          <p class="text-secondary mb-2">Clinician</p>
+                          <h3 class="text-secondary mb-20">Clinician</h3>
+                        </div>
+                        <div class="col-12">
+                          <div class="pb-15">						
+                            <div class="user-social-acount">
+                              <button class="btn btn-circle btn-social-icon btn-facebook" style="margin: 10px"><i class="fa fa-facebook"></i></button>
+                              <button class="btn btn-circle btn-social-icon btn-twitter" style="margin: 10px"><i class="fa fa-twitter"></i></button>
+                              <button class="btn btn-circle btn-social-icon btn-instagram" style="margin: 10px"><i class="fa fa-instagram"></i></button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <!-- /.row -->

@@ -39,6 +39,7 @@ class Clinician extends Controller
             'birthdate' => ['required','max:255'], 
             'address' => ['required','max:255'], 
             'clinic_name' => ['required','max:255'],  
+            'image' => ['image','mimes:jpg,png,jpeg','dimensions:min_width=416,min_height=416,max_width=416,max_height=416'],  
             'email' => [
                 'required',
                 Rule::unique('clinicians')->ignore($clinician->id),

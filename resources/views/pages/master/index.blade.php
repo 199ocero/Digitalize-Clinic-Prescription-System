@@ -75,7 +75,7 @@
                 <div class="col-md-12 col-12">
                     <div class="box">
                       <div class="box-header with-border">
-                        <h4 class="box-title">Digitalize Clinic Prescription System <small class="subtitle text-warning">Murag tagline dani gaw</small></h4>
+                        <h4 class="box-title">Digitalize Clinic Prescription System <small class="subtitle text-warning">E-Prescription Ready that Comes in Handy</small></h4>
                       </div>
                       <div class="box-body">
                         <div class="row">
@@ -84,7 +84,7 @@
 
                             </div>
                             <div class="col-md-6 text-center">
-                                <h1>Dani ang image sa atong system</h1>
+                                <img src="{{asset('upload/dcps_logo_big.png')}}" alt="Logo" class="mx-auto">
                             </div>
                         </div>
                       </div>

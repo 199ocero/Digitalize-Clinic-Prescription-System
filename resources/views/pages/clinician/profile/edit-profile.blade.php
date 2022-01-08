@@ -101,7 +101,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Birth Date</label>
-                                        <input class="form-control" type="date" id="birthdate" name="birthdate" value="{{$clinician->birthdate}}">
+                                        <input class="form-control" type="date" id="birthdate" name="birthdate" value="{{$clinician->birthdate->format('Y-m-d')}}">
                                         @error('birthdate')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -166,6 +166,7 @@
                                 <div class="form-group">
                                     <label>Upload Profile Photo</label>
                                     <input type="file" class="form-control" name="image" id="image">
+                                    <span class="mt-3 badge badge-xl badge-info">Note: The image dimension should be 416 x 416 pixels and 1 megabyte of size.</span>
                                   @error('image')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
