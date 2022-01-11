@@ -90,8 +90,10 @@ Route::group(['middleware' => ['auth', 'role:clinician']], function() {
         Route::get('/patient/record/details/{id}',[Clinician::class,'viewRecord'])->name('clinician.patient.records');
 
         //CRUD Patient Record
-        Route::get('/patient/record/add/view/{id}',[Clinician::class,'addViewRecord'])->name('patient.record.add');
+        Route::get('/patient/record/add/view/{id}',[Clinician::class,'addViewRecord'])->name('patient.record.view');
+        Route::get('/patient/record/details/view/{id}',[Clinician::class,'detailsViewRecord'])->name('patient.record.view.details');
         Route::post('/patient/record/add/{id}',[Clinician::class,'addRecord'])->name('patient.record.add');
+        Route::get('/patient/record/delete/{id}/{patient_id}',[Clinician::class,'deleteRecord'])->name('patient.record.delete');
 
     });
 });

@@ -6,13 +6,11 @@
       <section class="content">
         <div class="row">
           <div class="col-12">
-            <form method="POST" action="{{url('clinician/patient/record/add/'.$id)}}">
-                @csrf
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Record Creation</h3>
+                        <h3 class="box-title">Record Details</h3>
                         <button type="submit" class="btn btn-primary float-right">
-                            <i class="glyphicon glyphicon-plus"></i> Add Record
+                            <i class="glyphicon glyphicon-edit"></i> Edit Record
                         </button>
                     </div>
                   <div class="box-body">
@@ -21,12 +19,10 @@
                               <div class="form-group">
                                   <h5>Symptoms</h5>
                                   <textarea id="symptoms" name="symptoms" class="form-control" rows="5"></textarea>
-                                    <p class="text-warning" style="margin-top: 5px">Note: You can type none if there's no symptoms.</p>
                               </div>
                               <div class="form-group">
                                 <h5>Diagnosis</h5>
                                 <textarea id="diagnosis" name="diagnosis" class="form-control" rows="5"></textarea>
-                                  <p class="text-warning" style="margin-top: 5px">Note: You can type none if there's no diagnosis.</p>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -67,8 +63,6 @@
                                           <label for="checkbox_8">Stool Test</label>
                                       </fieldset>
                                   </div>
-                                      
-                                  <div class="help-block"></div></div> <p class="text-warning">Note: You can check 1 or more test results and leave blank if none.</p> </div>
                           </div>
 
                       </div>
@@ -80,7 +74,6 @@
                   </div>
                   <!-- /.box -->          
                 </div>
-            </form>
            
           <!-- /.col -->
         </div>

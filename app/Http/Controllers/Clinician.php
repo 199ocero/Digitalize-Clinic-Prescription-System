@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Patient;
 use App\Models\Clinicians;
 use App\Models\Appointment;
+use App\Models\Test;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Validation\Rule;
@@ -111,16 +112,59 @@ class Clinician extends Controller
         return view('pages.clinician.patient.create-record',compact('id'));
     }
     public function addRecord(Request $request, $id){
-        $record = $request->all();
-        $records = $request->input('test');
-        $symptoms = $request->symptoms;
 
+        $tests = $request->input('test');
+        $result = array();
+        $test_item = array("Echocardiogram('echo')","Electrocardiogram(ECG or EKG)","Chest X-ray","Blood Test(CBC)","Urinalysis(Urine Test)","Ultrasound","CT Scan","Stool Test");
+        
+        if($tests == null){
+            $tests = array("","","","","","","","");
+        }
+        for ($i=0;$i<count($test_item);$i++){
+            if (in_array($test_item[$i], $tests, TRUE)){
+                array_push($result,"1");
+            }else{
+                array_push($result,"0");
+            }
+        }
+
+        $test = new Test();
+        $test->echocardiogram = $result[0];
+        $test->electrocardiogram = $result[1];
+        $test->x_ray = $result[2];
+        $test->cbc = $result[3];
+        $test->urinalysis = $result[4];
+        $test->ultrasound = $result[5];
+        $test->ct_scan = $result[6];
+        $test->stool_test = $result[7];
+        $test->save();
         
         $appointment = new Appointment();
         $appointment->patient_id = $id;
-        $appointment->symptoms = $request->symptoms;
+        $appointment->test_id = $test->id;
+        if($request->symptoms==null){
+            $appointment->symptoms = "None";
+        }else{
+            $appointment->symptoms = $request->symptoms;
+        }
+        if($request->diagnosis==null){
+            $appointment->diagnosis = "None";
+        }else{
+            $appointment->diagnosis = $request->diagnosis;
+        }
+        
         $appointment->save();
-        dd($records);
+        return redirect()->route('clinician.patient.records',['id'=>$id])->with('success','Appointment Added!');
+    }
+    public function detailsViewRecord($id){
+        $appointment = Appointment::find($id);
+        dd($appointment->toArray());
+    }
+    public function deleteRecord($id,$patient_id){
+        $test = Appointment::find($id)->toArray();
+        Test::find((int)$test['test_id'])->delete();
+        Appointment::find($id)->delete();
+        return redirect()->route('clinician.patient.records',['id'=>$patient_id])->with('success','Appointment Deleted!');
     }
 
 }
