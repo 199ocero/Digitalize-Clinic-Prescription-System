@@ -138,12 +138,30 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Contact Number</label>
-                                  <input type="tel" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number" value="{{$clinician->contact_number}}" maxlength="11">
+                                  <input onkeypress="return onlyNumberKey(event)" type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number" value="{{$clinician->contact_number}}" maxlength="11">
                                   @error('contact')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>PTR Number</label>
+                                <input onkeypress="return onlyNumberKey(event)" type="tel" class="form-control" name="ptr_number" id="ptr_number" placeholder="Enter PTR Number" value="{{$clinician->ptr_number}}" maxlength="7">
+                                @error('ptr_number')
+                                  <span class="text-danger">{{$message}}</span>
+                                @enderror
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>License Number</label>
+                              <input onkeypress="return onlyNumberKey(event)" type="text" class="form-control" name="license_number" id="license_number" placeholder="Enter License Number" value="{{$clinician->license_number}}" maxlength="7">
+                              @error('license_number')
+                                <span class="text-danger">{{$message}}</span>
+                              @enderror
+                            </div>
+                        </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                   <label>Clinic Name</label>
@@ -215,6 +233,16 @@
             reader.readAsDataURL(e.target.files['0']);
          })
     });
+</script>
+<script>
+  function onlyNumberKey(evt) {
+        
+      // Only ASCII character in that range allowed
+      var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+          return false;
+      return true;
+  }
 </script>
 <!-- /.content-wrapper -->
 @endsection

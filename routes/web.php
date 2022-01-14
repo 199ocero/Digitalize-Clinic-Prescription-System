@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -93,7 +93,18 @@ Route::group(['middleware' => ['auth', 'role:clinician']], function() {
         Route::get('/patient/record/add/view/{id}',[Clinician::class,'addViewRecord'])->name('patient.record.view');
         Route::get('/patient/record/details/view/{id}',[Clinician::class,'detailsViewRecord'])->name('patient.record.view.details');
         Route::post('/patient/record/add/{id}',[Clinician::class,'addRecord'])->name('patient.record.add');
+        Route::get('/patient/record/edit/{id}',[Clinician::class,'editRecord'])->name('patient.record.edit');
+        Route::post('/patient/record/update/{id}',[Clinician::class,'updateRecord'])->name('patient.record.update');
         Route::get('/patient/record/delete/{id}/{patient_id}',[Clinician::class,'deleteRecord'])->name('patient.record.delete');
+
+        //CRUD e-Prescription
+        Route::get('/patient/prescription/view/{id}',[Clinician::class,'viewPrescription'])->name('patient.prescription.view');
+        Route::get('/patient/prescription/add/view/{id}',[Clinician::class,'addViewPrescription'])->name('patient.prescription.add.view');
+        Route::post('/patient/prescription/add/{id}',[Clinician::class,'addPrescription'])->name('patient.prescription.add');
+        Route::get('/patient/prescription/delete/{id}/{patient_id}',[Clinician::class,'deletePrescription'])->name('patient.prescription.delete');
+        Route::get('/patient/prescription/edit/{id}',[Clinician::class,'editPrescription'])->name('patient.prescription.edit');
+        Route::post('/patient/prescription/update/{id}',[Clinician::class,'updatePrescription'])->name('patient.prescription.update');
+        Route::get('/patient/generate/prescription/{id}',[Clinician::class,'generatePrescription'])->name('patient.prescription.generate');
 
     });
 });

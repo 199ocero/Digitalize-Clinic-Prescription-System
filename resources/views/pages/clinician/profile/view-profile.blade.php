@@ -149,6 +149,24 @@
                           <hr>
                           <div class="row">
                             <div class="col-sm-6">
+                              <p><strong class="text-secondary">PTR Number :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->ptr_number}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><strong class="text-secondary">License Number :</strong></p>
+                            </div>
+                            <div class="col-sm-6 text-secondary">
+                              {{$clinician->license_number}}
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
                               <p><strong class="text-secondary">Email :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
