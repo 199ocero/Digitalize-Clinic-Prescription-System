@@ -2,13 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patient;
 use App\Models\User;
+use App\Models\Staffs;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Staff extends Controller
 {
+    //Change Password
+    public function viewPassword(){
+        return view('pages.staff.password.change-password');
+    }
+    public function updatePassword(Request $request){
+        $request->validate([
+            'current_password' => ['required'],
+            'password' => ['required','confirmed'],
+        ]);
+        
+        // User::find(Auth::id())->update(['password'=> Hash::make($request->password)]);
+        $hashPassword = Auth::user()->password;
+        if(Hash::check($request->current_password,$hashPassword)){
+            $staff = User::find(Auth::id());
+            $staff->password = Hash::make($request->password);
+            $staff->update();
+
+        }
+        return redirect()->route('view.password.staff')->with('success','Password Change!');
+    }
+
     public function viewPatient(){
         $patient = Patient::all();
         return view('pages.staff.view-patient',compact('patient'));

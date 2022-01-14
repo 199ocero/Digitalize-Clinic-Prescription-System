@@ -49,6 +49,19 @@
 			        <span>Dashboard</span>
           </a>
         </li>
+        <li class="header nav-small-cap">Account Management</li>
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="user"></i>
+              <span>Account</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{(($prefix=='/staff' && $route=='view.password.staff'))?'active':''}}"><a href="{{route('view.password.staff')}}"><i class="ti-more"></i>Change Password</a></li>
+          </ul>
+          </li>
           <li class="header nav-small-cap">Patient Management</li>
           <li class="treeview">
             <a href="#">
@@ -63,7 +76,8 @@
               ||($prefix=='/staff' && $route=='view.staff.patient.add')
               ||($prefix=='/staff' && $route=='patient.edit'))?'active':''}}"><a href="{{route('view.staff.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
-          </li> 
+          </li>
+           
         @endrole
         @role('clinician')
         <li class="{{($route=='dashboard')?'active':''}}">

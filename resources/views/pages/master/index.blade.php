@@ -62,7 +62,7 @@
                                     <div class="ribbon ribbon-info">e-Prescription</div>
                                 </div>
                                 <div class="col">
-                                    <span class="float-right badge badge-xl badge-info">12</span>
+                                    <span class="float-right badge badge-xl badge-info">{{$prescription}}</span>
                                     
                                 </div>
                             </div>
