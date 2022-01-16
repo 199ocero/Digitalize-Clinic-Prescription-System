@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->id();
             $table->string('echocardiogram')->nullable();
             $table->string('electrocardiogram')->nullable();
-            $table->string('x-ray')->nullable();
+            $table->string('x_ray')->nullable();
             $table->string('cbc')->nullable();
             $table->string('urinalysis')->nullable();
             $table->string('ultrasound')->nullable();
