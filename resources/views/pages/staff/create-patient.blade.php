@@ -137,7 +137,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Contact Number</label>
-                                  <input onkeypress="return onlyNumberKey(event)" type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number">
+                                  <input onkeypress="return onlyNumberKey(event)" type="tel" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number">
                                   @error('contact')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
