@@ -37,7 +37,8 @@
             <ul class="treeview-menu">
               <li class="{{(($prefix=='/admin' && $route=='view.admin.clinician')
               ||($prefix=='/admin' && $route=='view.admin.clinician.add')
-              ||($prefix=='/admin' && $route=='clinician.edit'))?'active':''}}"><a href="{{route('view.admin.clinician')}}"><i class="ti-more"></i>View Clinician</a></li>
+              ||($prefix=='/admin' && $route=='clinician.edit')
+              ||($prefix=='/admin' && $route=='staff.edit'))?'active':''}}"><a href="{{route('view.admin.clinician')}}"><i class="ti-more"></i>View Clinician</a></li>
               <li class="{{(($prefix=='/admin' && $route=='view.admin.staff')
               ||($prefix=='/admin' && $route=='view.admin.staff.add'))?'active':''}}"><a href="{{route('view.admin.staff')}}"><i class="ti-more"></i>View Staff</a></li>
           </ul>
