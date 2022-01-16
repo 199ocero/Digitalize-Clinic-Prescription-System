@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Weight (Kilograms)</label>
-                                  <input type="text" class="form-control" name="weight" id="weight" placeholder="Enter Weight">
+                                  <input type="number" class="form-control" name="weight" id="weight" placeholder="Enter Weight">
                                   @error('weight')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -119,7 +119,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Height (Meters)</label>
-                                  <input type="text" class="form-control" name="height" id="height" placeholder="Enter Height">
+                                  <input type="number" class="form-control" name="height" id="height" placeholder="Enter Height">
                                   @error('height')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -137,7 +137,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Contact Number</label>
-                                  <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number">
+                                  <input onkeypress="return onlyNumberKey(event)" type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number">
                                   @error('contact')
                                     <span class="text-danger">{{$message}}</span>
                                   @enderror
@@ -176,4 +176,26 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+<script>
+  $(document).ready(function () {
+      $('#image').change(function (e)
+       { 
+          var reader = new FileReader();
+          reader.onload = function(e){
+              $('#showImage').attr('src',e.target.result);
+          }
+          reader.readAsDataURL(e.target.files['0']);
+       })
+  });
+</script>
+<script>
+function onlyNumberKey(evt) {
+      
+    // Only ASCII character in that range allowed
+    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+    return true;
+}
+</script>
 @endsection

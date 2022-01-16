@@ -152,7 +152,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label>PTR Number</label>
-                                <input onkeypress="return onlyNumberKey(event)" type="tel" class="form-control" name="ptr_number" id="ptr_number" placeholder="Enter PTR Number" value="{{$clinician->ptr_number}}" maxlength="7">
+                                <input onkeypress="return onlyNumberKey(event)" type="text" class="form-control" name="ptr_number" id="ptr_number" placeholder="Enter PTR Number" value="{{$clinician->ptr_number}}" maxlength="7">
                                 @error('ptr_number')
                                   <span class="text-danger">{{$message}}</span>
                                 @enderror
