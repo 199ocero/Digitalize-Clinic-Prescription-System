@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{asset('upload/fav_icon.png')}}">
 
-    <title>DSCPS</title>
+    <title>DCPS</title>
   
 	<!-- Vendors Style-->
     

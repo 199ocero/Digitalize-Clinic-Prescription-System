@@ -118,7 +118,8 @@
               ||($prefix=='/clinician' && $route=='patient.record.edit')
               ||($prefix=='/clinician' && $route=='patient.prescription.view')
               ||($prefix=='/clinician' && $route=='patient.prescription.add.view')
-              ||($prefix=='/clinician' && $route=='patient.prescription.edit'))?'active':''}}"><a href="{{route('view.clinician.patient')}}"><i class="ti-more"></i>View Patient</a></li>
+              ||($prefix=='/clinician' && $route=='patient.prescription.edit')
+              ||($prefix=='/clinician' && $route=='patient.record.view'))?'active':''}}"><a href="{{route('view.clinician.patient')}}"><i class="ti-more"></i>View Patient</a></li>
           </ul>
           </li> 
         @endrole

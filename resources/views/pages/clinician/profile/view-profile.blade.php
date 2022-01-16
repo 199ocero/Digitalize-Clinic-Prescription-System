@@ -107,7 +107,10 @@
                               <p><strong class="text-secondary">Birth Date :</strong></p>
                             </div>
                             <div class="col-sm-6 text-secondary">
+                              @if ($clinician->birthdate!=null)
                               {{$clinician->birthdate->format('F j, Y')}}
+                              @endif
+                              
                             </div>
                           </div>
                           <hr>

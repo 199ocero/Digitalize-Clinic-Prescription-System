@@ -101,7 +101,12 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Birth Date</label>
-                                        <input class="form-control" type="date" id="birthdate" name="birthdate" value="{{$clinician->birthdate->format('Y-m-d')}}">
+                                        @if ($clinician->birthdate!=null)
+                                          <input class="form-control" type="date" id="birthdate" name="birthdate" value="{{$clinician->birthdate->format('Y-m-d')}}">
+                                        @else
+                                          <input class="form-control" type="date" id="birthdate" name="birthdate">
+                                        @endif
+                                        
                                         @error('birthdate')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror

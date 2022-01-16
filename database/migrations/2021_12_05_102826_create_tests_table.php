@@ -15,14 +15,14 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
-            $table->string('echocardiogram');
-            $table->string('electrocardiogram');
-            $table->string('x-ray');
-            $table->string('cbc');
-            $table->string('urinalysis');
-            $table->string('ultrasound');
-            $table->string('ct_scan');
-            $table->string('stool_test');
+            $table->string('echocardiogram')->nullable();
+            $table->string('electrocardiogram')->nullable();
+            $table->string('x-ray')->nullable();
+            $table->string('cbc')->nullable();
+            $table->string('urinalysis')->nullable();
+            $table->string('ultrasound')->nullable();
+            $table->string('ct_scan')->nullable();
+            $table->string('stool_test')->nullable();
             $table->timestamps();
         });
     }

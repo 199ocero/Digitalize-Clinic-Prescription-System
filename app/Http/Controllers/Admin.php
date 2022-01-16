@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Clinicians;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +30,12 @@ class Admin extends Controller
         $clinician->password= Hash::make($date.'-'.$request->username);
         $clinician->save();
         $clinician->attachRole($request->role_id);
+
+        $clinician_info = new Clinicians();
+        $clinician_info->clinician_id = $clinician->id;
+        $clinician_info->email = $request->email;
+        $clinician_info->save();
+        
         return redirect()->route('view.admin.clinician')->with('success','Clinician Added!');
     }
     public function editClinician($id){
@@ -56,6 +63,7 @@ class Admin extends Controller
     }
     public function deleteClinician($id){
         User::find($id)->delete();
+        Clinicians::where('clinician_id',$id)->delete();
         return redirect()->route('view.admin.clinician')->with('success','Clinician Deleted!');
     }
 
