@@ -18,4 +18,5 @@ class Test extends Model
         'ct_scan',
         'stool_test',
     ];
+    protected $primaryKey = 'id';
 }
